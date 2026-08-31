@@ -6,14 +6,14 @@ using System.Threading;
 namespace Soenneker.Mistral.HttpClients.Abstract;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for 
+/// Provides a cached, authenticated HTTP client for the Mistral API.
 /// </summary>
-public interface IMistralOpenApiHttpClient: IDisposable, IAsyncDisposable
+public interface IMistralOpenApiHttpClient : IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Gets the value.
+    /// Gets the configured Mistral HTTP client.
     /// </summary>
     /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>A task containing the result of the operation.</returns>
+    /// <returns>The cached client.</returns>
     ValueTask<HttpClient> Get(CancellationToken cancellationToken = default);
 }
