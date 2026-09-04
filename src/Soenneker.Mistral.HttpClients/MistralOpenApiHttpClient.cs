@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Mistral.HttpClients;
 
+/// <inheritdoc cref="IMistralOpenApiHttpClient" />
 public sealed class MistralOpenApiHttpClient : IMistralOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
