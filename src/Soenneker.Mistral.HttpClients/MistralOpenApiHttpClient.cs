@@ -30,7 +30,7 @@ public sealed class MistralOpenApiHttpClient : IMistralOpenApiHttpClient
     {
         return _httpClientCache.Get(_clientId, (config: _config, baseUrl: _config["Mistral:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Mistral:ApiKey");
+            var apiKey = state.config.GetStringStrict("Mistral:ApiKey");
             string authHeaderName = state.config["Mistral:AuthHeaderName"] ?? "Authorization";
             string authHeaderValueTemplate = state.config["Mistral:AuthHeaderValueTemplate"] ?? "Bearer {token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
